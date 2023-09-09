@@ -1,0 +1,30 @@
+{
+    "random_state": 42,
+
+    "preprocess": {
+        "do_preproc": true,
+        "add_attributes": false,
+        "combined_attrs": {
+            "RoomsPerBedrm":   true,
+            "MedIncPerPop":    true,
+            "AveOccupPerRoom": true,
+            "MedIncPerRoom":   true,
+            "MedIncPerBedrm":  true
+        },
+        
+        "lat_lon": {
+            "kmeans": {
+                "do_kmeans": false,
+                "n_clusters": 25
+            },
+            "do_distance": false
+        },
+        "do_scale": true
+    },
+
+    "cross_validation": {
+        "do_cross_val": true,
+        "num_splits": 5,
+        "scoring": ["neg_mean_absolute_error", "neg_root_mean_squared_error"]
+    }
+}
