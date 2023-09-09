@@ -154,5 +154,6 @@ cython_debug/
 # Notebook
 .ipynb_checkpoints
 
-# Data folder
+# User folders
 data
+img
