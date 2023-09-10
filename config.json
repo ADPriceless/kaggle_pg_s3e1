@@ -12,13 +12,11 @@
             "MedIncPerRoom":   true,
             "MedIncPerBedrm":  true
         },      
-        "coords": {
-            "kmeans": {
-                "do_kmeans": false,
-                "n_clusters": 25
-            },
-            "do_distance": false
+        "kmeans": {
+            "enable": true,
+            "n_clusters": 25
         },
+        "do_distance": false,
         "do_scale": true
     },
 
