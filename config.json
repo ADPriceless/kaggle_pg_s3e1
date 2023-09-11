@@ -5,6 +5,7 @@
         "do_preproc": true,
         "append_sklearn_dataset": true,
         "add_attributes": false,
+        "enable_dist_to_coast": true,
         "combined_attrs": {
             "RoomsPerBedrm":   true,
             "MedIncPerPop":    true,
@@ -16,7 +17,6 @@
             "enable": true,
             "n_clusters": 25
         },
-        "do_distance": false,
         "do_scale": true
     },
 
