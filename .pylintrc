@@ -1,0 +1,13 @@
+[BASIC]
+good-names=i,
+           j,
+           k,
+           ex,
+           Run,
+           _,
+           X,
+           y
+
+[MESSAGES CONTROL]
+disable=
+    missing-function-docstring

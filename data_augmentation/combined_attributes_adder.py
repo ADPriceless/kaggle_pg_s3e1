@@ -1,7 +1,17 @@
+"""Class for making new features from existing 
+ones in sklearn-style transormer"""
+
+
+# Disable unused arguments only for this file
+# pylint: disable=unused-argument
+
+
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
 class CombinedAttributesAdder(BaseEstimator, TransformerMixin):
+    """Makes new features by performing some calculation on existing
+    features"""
     def __init__(self, attr_to_add):
         self.attr_to_add = attr_to_add
 

@@ -1,3 +1,11 @@
+"""Contains sklearn-style transformer classes 
+for co-ordinate data preproccessing"""
+
+
+# Disable unused arguments only for this file
+# pylint: disable=unused-argument
+
+
 import pickle
 
 import numpy as np
@@ -6,6 +14,8 @@ from sklearn.cluster import KMeans
 
 
 class NearestCluster(BaseEstimator, TransformerMixin):
+    """Calulates clusters and then calculates the 
+    nearest cluster to each house"""
     def __init__(self, n_clusters: int) -> None:
         super().__init__()
         self.kmeans = KMeans(
@@ -27,6 +37,9 @@ class NearestCluster(BaseEstimator, TransformerMixin):
 
 
 class DistToCoastLoader(BaseEstimator, TransformerMixin):
+    """This class loads data about distance to the ocean
+    from a given house that has already been calculated for the
+    dataset. This is to save time recalculating this data."""
     def __init__(self, filepath: str, extra_data: bool) -> None:
         super().__init__()
         self.filepath = filepath
@@ -34,7 +47,7 @@ class DistToCoastLoader(BaseEstimator, TransformerMixin):
 
     def fit(self, X, y=None):
         return self
-    
+
     def transform(self, X):
         with open(self.filepath, 'rb') as pckl:
             dist_to_coast = pickle.load(pckl)
@@ -46,6 +59,8 @@ class DistToCoastLoader(BaseEstimator, TransformerMixin):
 
 
 class DistToCity(BaseEstimator, TransformerMixin):
+    """Calculates the distance that a house is from the nearest
+    city provided in `city_coords`"""
     def __init__(self, city_coords: list[np.array]) -> None:
         super().__init__()
         self.city_coords = city_coords
